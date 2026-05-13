@@ -6,42 +6,42 @@
 
 int main()
 {
-    int playerCard1, playerCard2, playerTotal;
-    int dealerCard1, dealerCard2, dealerTotal;
-    char playAgain;
+    int hracKarta1, hracKarta2, hracSoucet;
+    int dealerKarta1, dealerKarta2, dealerSoucet;
+    char hratZnovu;
 
-    srand(time(0)); // Seed the random number generator
+    srand(time(0)); // Inicializace generátoru náhodných čísel
 
     do {
-        // Deal cards to player
-        playerCard1 = rand() % 11 + 1; // Card value between 1 and 11
-        playerCard2 = rand() % 11 + 1; // Card value between 1 and 11
-        playerTotal = playerCard1 + playerCard2;
+        // Rozdání karet hráči
+        hracKarta1 = rand() % 11 + 1; // Hodnota karty mezi 1 a 11
+        hracKarta2 = rand() % 11 + 1; // Hodnota karty mezi 1 a 11
+        hracSoucet = hracKarta1 + hracKarta2;
 
-        // Deal cards to dealer
-        dealerCard1 = rand() % 11 + 1; // Card value between 1 and 11
-        dealerCard2 = rand() % 11 + 1; // Card value between 1 and 11
-        dealerTotal = dealerCard1 + dealerCard2;
+        // Rozdání karet dealerovi
+        dealerKarta1 = rand() % 11 + 1; // Hodnota karty mezi 1 a 11
+        dealerKarta2 = rand() % 11 + 1; // Hodnota karty mezi 1 a 11
+        dealerSoucet = dealerKarta1 + dealerKarta2;
 
-        printf("Player's cards: %d and %d (Total: %d)\n", playerCard1, playerCard2, playerTotal);
-        printf("Dealer's cards: %d and %d (Total: %d)\n", dealerCard1, dealerCard2, dealerTotal);
+        printf("Hracovy karty: %d a %d (Soucet: %d)\n", hracKarta1, hracKarta2, hracSoucet);
+        printf("Dealerovy karty: %d a %d (Soucet: %d)\n", dealerKarta1, dealerKarta2, dealerSoucet);
 
-        if (playerTotal > 21) {
-            printf("Player busts! Dealer wins.\n");
-        } else if (dealerTotal > 21) {
-            printf("Dealer busts! Player wins.\n");
-        } else if (playerTotal > dealerTotal) {
-            printf("Player wins!\n");
-        } else if (dealerTotal > playerTotal) {
-            printf("Dealer wins!\n");
+        if (hracSoucet > 21) {
+            printf("Hrac pretahl! Dealer vyhrava.\n");
+        } else if (dealerSoucet > 21) {
+            printf("Dealer pretahl! Hrac vyhrava.\n");
+        } else if (hracSoucet > dealerSoucet) {
+            printf("Hrac vyhrava!\n");
+        } else if (dealerSoucet > hracSoucet) {
+            printf("Dealer vyhrava!\n");
         } else {
-            printf("It's a tie!\n");
+            printf("Je to remiza!\n");
         }
 
-        printf("Do you want to play again? (y/n): ");
-        scanf(" %c", &playAgain);
+        printf("Chcete hrat znovu? (a/n): ");
+        scanf(" %c", &hratZnovu);
         
-    } while (playAgain == 'y' || playAgain == 'Y');
+    } while (hratZnovu == 'a' || hratZnovu == 'A');
 
     return 0;
 }
