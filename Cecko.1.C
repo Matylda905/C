@@ -40,6 +40,7 @@ int main()
 
         printf("Do you want to play again? (y/n): ");
         scanf(" %c", &playAgain);
+        
     } while (playAgain == 'y' || playAgain == 'Y');
 
     return 0;
